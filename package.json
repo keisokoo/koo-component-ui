@@ -4,12 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
     "syncStyle": "node --loader ts-node/esm src/scripts/syncStyles.ts",
-    "watch": "npm run dev && chokidar 'src/configs/*.ts' -c 'npm run syncStyle'"
+    "dev": "vite && chokidar 'src/configs/*.ts' -c 'npm run syncStyle'",
+    "build": "node --loader ts-node/esm src/scripts/syncStyles.ts && tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
