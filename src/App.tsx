@@ -1,6 +1,8 @@
 import { css } from 'styled-components'
+import './global.scss'
 import Div from './themes/Div'
-
+import styles from './themes/variables.module.css'
+console.log(styles['--myVariable']) // "red"
 function App() {
   return (
     <>

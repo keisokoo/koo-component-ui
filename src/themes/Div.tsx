@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components/macro'
+import { fonts } from './../configs/themes'
 import { CSSObject } from './CSSObject'
 import { AddCss, ExtraCss, convertObjectToCSS } from './style.helpers'
-import { typography } from './styles'
 
 type DivProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -12,7 +12,7 @@ type DivProps = React.DetailedHTMLProps<
     $css?: ExtraCss
   }
 const Div = styled.div<DivProps>`
-  ${typography.default}
+  ${fonts.default}
   ${AddCss}
   ${({ $style, $css, ...rest }) => {
     const inlineStyle = convertObjectToCSS(rest, true)
