@@ -1,5 +1,5 @@
 test.fearnot.kr {
-  root * /var/www/html
+  root * /usr/share/caddy
   file_server
   encode gzip
   log {
