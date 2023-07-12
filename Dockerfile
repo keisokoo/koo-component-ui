@@ -1,12 +1,21 @@
-# Build stage
-FROM node:18-alpine AS build
-WORKDIR /app
-COPY package*.json ./
-RUN npm install -g pnpm
-RUN pnpm install
-COPY . .
-RUN pnpm run build
+# Base image
+FROM node:18-alpine as build
 
-# Production stage
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy project files
+COPY . .
+
+# Build the project
+RUN npm run build
+
+# Serve the built files using a lightweight HTTP server
 FROM caddy:latest
-COPY --from=build /app/dist /usr/share/caddy
+COPY --from=build /app/dist /var/www/html

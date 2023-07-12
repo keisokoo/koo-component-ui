@@ -1,4 +1,4 @@
-test.fearnot.kr
-
-root * /usr/share/caddy
-file_server
+test.fearnot.kr {
+  root * /var/www/html
+  file_server
+}
