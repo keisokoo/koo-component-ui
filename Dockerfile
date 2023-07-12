@@ -9,4 +9,4 @@ RUN pnpm run build
 
 # Production stage
 FROM caddy:latest
-COPY --from=build /app/build /var/www/html
+COPY --from=build /app/dist /var/www/html
