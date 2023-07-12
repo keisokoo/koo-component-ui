@@ -1,0 +1,8 @@
+test.fearnot.kr {
+  root * /var/www/html
+  file_server
+  encode gzip
+  log {
+    output stdout
+  }
+}
