@@ -1,18 +1,23 @@
-version: '3'
-services:
-  caddy:
-    image: caddy:latest
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./data:/data
-      - ./config:/config
-    restart: always
+# docker-compose.yml
 
-  react:
-    build:
+version: '3.7'
+
+services:
+  app:
+    build: 
       context: .
       dockerfile: Dockerfile
-    restart: always
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  caddy:
+    image: caddy:2.0.0
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./dist:/usr/share/caddy
+    ports:
+      - '80:80'
+      - '443:443'
+    depends_on:
+      - app
