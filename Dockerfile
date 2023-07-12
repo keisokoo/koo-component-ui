@@ -8,6 +8,5 @@ COPY . .
 RUN pnpm run build
 
 # Production stage
-FROM nginx:stable-alpine AS production
-FROM caddy:latest
+FROM caddy:latest AS production
 COPY --from=build /app/dist /var/www/html
