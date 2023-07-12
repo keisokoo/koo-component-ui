@@ -1,21 +1,20 @@
 import { css } from 'styled-components'
 import './global.scss'
 import Div from './themes/Div'
-import styles from './themes/variables.module.css'
-console.log(styles['--myVariable']) // "red"
+
 function App() {
   return (
     <>
       <Div
-        $style={{ backgroundColor: 'red' }}
+        $style={{ backgroundColor: 'white', fontSize: '20px' }}
         $css={css`
-          color: blue;
+          color: #333;
         `}
-        $width={100}
+        $width={'auto'}
         $display={'flex'}
         $alignItems={'flex-end'}
       >
-        hello
+        작성 중입니다.
       </Div>
     </>
   )

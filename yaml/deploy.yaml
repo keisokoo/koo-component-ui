@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-ui-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: react-ui-app
+  template:
+    metadata:
+      labels:
+        app: react-ui-app
+    spec:
+      containers:
+        - name: react-ui-app
+          image: react-component-ui
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
