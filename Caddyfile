@@ -1,8 +1,4 @@
-test.fearnot.kr {
-  root * /usr/share/caddy
-  file_server
-  encode gzip
-  log {
-    output stdout
-  }
-}
+test.fearnot.kr
+
+root * /usr/share/caddy
+file_server
