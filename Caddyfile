@@ -1,5 +1,6 @@
 
 test.fearnot.kr {
+  email keisokoo@gmail.com
   tls {
     ca https://api.buypass.com/acme/directory
   }
