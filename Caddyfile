@@ -1,6 +1,6 @@
 
 test.fearnot.kr {
-  tls keisokoo@gmail.com{
+  tls {
     ca https://api.buypass.com/acme/directory
   }
   root * /usr/share/caddy
