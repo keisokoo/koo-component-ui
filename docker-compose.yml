@@ -2,19 +2,17 @@
 
 version: '3.8'
 services:
-  app:
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    expose:
-      - 3000
-
   caddy:
     image: caddy:2-alpine
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./public:/usr/share/caddy  # React 애플리케이션의 빌드 디렉토리를 Caddy 컨테이너에 마운트
     ports:
       - '80:80'
       - '443:443'
-    depends_on:
-      - app
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./public:/app/build  # React 애플리케이션의 빌드 디렉토리를 호스트에 마운트
