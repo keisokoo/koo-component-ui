@@ -1,4 +1,6 @@
-export const colors = {
+const colors = {
+  foreground: '#f1f1f1',
+  background: '#333333',
   white: '#FFFFFF',
   white70: '#ffffffb2',
   white50: '#ffffff7f',
@@ -17,8 +19,8 @@ export const colors = {
   success: '#1ED300',
   info: '#0094D3',
 }
-export const fonts = {
+const fonts = {
   default:
     'font-size:16px;font-weight:400;letter-spacing:-0.6000000238418579px;line-height:24px;',
 }
-export default { colors, fonts }
+export { colors, fonts }

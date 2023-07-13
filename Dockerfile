@@ -1,19 +1,15 @@
-# Dockerfile
-
-# 빌드 환경
-FROM node:18-alpine as build
-
+# Build stage
+FROM node:18-alpine AS build
 WORKDIR /app
-
 COPY package*.json ./
-
-RUN npm install
-
+RUN npm install -g pnpm
+RUN pnpm install
 COPY . .
+RUN pnpm run build
 
-RUN npm run build
-
-# 프로덕션 환경
-FROM caddy:2-alpine
-
-COPY --from=build /app/dist /usr/share/caddy
+# Production stage
+FROM nginx:stable-alpine AS production
+COPY --from=build /app/dist /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
