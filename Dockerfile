@@ -12,3 +12,8 @@ RUN npm install
 COPY . .
 
 RUN npm run build
+
+# 프로덕션 환경
+FROM caddy:2-alpine
+
+COPY --from=build /app/dist /usr/share/caddy
