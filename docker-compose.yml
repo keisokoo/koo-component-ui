@@ -15,7 +15,6 @@ services:
     image: caddy:latest
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./dist:/usr/share/caddy
     ports:
       - '80:80'
       - '443:443'

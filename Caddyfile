@@ -1,4 +1,4 @@
+
 test.fearnot.kr {
-    root * /usr/share/caddy
-    file_server
+    reverse_proxy app:80
 }
